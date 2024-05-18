@@ -5,13 +5,13 @@
 class Papercrypt < Formula
   desc "A tool to generate paper backups of your passwords and other secrets."
   homepage "https://github.com/TMUniversal/papercrypt"
-  version "1.2.1"
+  version "1.2.2"
   license "AGPL-3.0-or-later"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.1/papercrypt_Darwin_x86_64.tar.gz"
-      sha256 "2846acd057c9ba016b17510709a909811fa87fa964d1c359b657e59ccd309f83"
+    on_intel do
+      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.2/papercrypt_Darwin_x86_64.tar.gz"
+      sha256 "ce3814bce1664d858961b928499fab54bc1a3311ccbf292ae47127d6f99520d8"
 
       def install
         bin.install "papercrypt"
@@ -21,9 +21,9 @@ class Papercrypt < Formula
         man1.install "manpages/papercrypt.1.gz"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.1/papercrypt_Darwin_arm64.tar.gz"
-      sha256 "9dc808698a6bb6e932b137642d976873fd387f3246ab5b3c09f33140f3cc178f"
+    on_arm do
+      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.2/papercrypt_Darwin_arm64.tar.gz"
+      sha256 "6937424eca9f0c08bd6e59c3007e7d050e8f7d30b1e492790055b9cc8b8cebc6"
 
       def install
         bin.install "papercrypt"
@@ -36,28 +36,32 @@ class Papercrypt < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.1/papercrypt_Linux_x86_64.tar.gz"
-      sha256 "234755732b9a9cff54e944c26a953c25eb66b6a36c448a171d45455049e502c9"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.2/papercrypt_Linux_x86_64.tar.gz"
+        sha256 "eea39b3a5ba9bdf2124627d937a9cb23eabd42c0ff8a1d292e7d27213d823ab7"
 
-      def install
-        bin.install "papercrypt"
-        bash_completion.install "completions/papercrypt.bash" => "papercrypt"
-        fish_completion.install "completions/papercrypt.fish"
-        zsh_completion.install "completions/papercrypt.zsh" => "_papercrypt"
-        man1.install "manpages/papercrypt.1.gz"
+        def install
+          bin.install "papercrypt"
+          bash_completion.install "completions/papercrypt.bash" => "papercrypt"
+          fish_completion.install "completions/papercrypt.fish"
+          zsh_completion.install "completions/papercrypt.zsh" => "_papercrypt"
+          man1.install "manpages/papercrypt.1.gz"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.1/papercrypt_Linux_arm64.tar.gz"
-      sha256 "edbd2fa8a7573449a061e6bb636bf0a145952089ce026313a70591b13fd90900"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.2/papercrypt_Linux_arm64.tar.gz"
+        sha256 "1d3cde30fc292df1ad5b95069acda93ae3caa0f2944d8947233083fef804f356"
 
-      def install
-        bin.install "papercrypt"
-        bash_completion.install "completions/papercrypt.bash" => "papercrypt"
-        fish_completion.install "completions/papercrypt.fish"
-        zsh_completion.install "completions/papercrypt.zsh" => "_papercrypt"
-        man1.install "manpages/papercrypt.1.gz"
+        def install
+          bin.install "papercrypt"
+          bash_completion.install "completions/papercrypt.bash" => "papercrypt"
+          fish_completion.install "completions/papercrypt.fish"
+          zsh_completion.install "completions/papercrypt.zsh" => "_papercrypt"
+          man1.install "manpages/papercrypt.1.gz"
+        end
       end
     end
   end
