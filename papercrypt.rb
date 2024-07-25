@@ -5,13 +5,13 @@
 class Papercrypt < Formula
   desc "A tool to generate paper backups of your passwords and other secrets."
   homepage "https://github.com/TMUniversal/papercrypt"
-  version "1.2.6"
+  version "1.2.7"
   license "AGPL-3.0-or-later"
 
   on_macos do
     on_intel do
-      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.6/papercrypt_Darwin_x86_64.tar.gz"
-      sha256 "b6104abdda07e401e897bf1190345d7fc237af4cbe5a8a8a090a2552ed9193d1"
+      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.7/papercrypt_Darwin_x86_64.tar.gz"
+      sha256 "bb4f87a8d02e5489ae6ca54a38da6f3933ecec7605ebbe9437f1438b9449a3d5"
 
       def install
         bin.install "papercrypt"
@@ -22,8 +22,8 @@ class Papercrypt < Formula
       end
     end
     on_arm do
-      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.6/papercrypt_Darwin_arm64.tar.gz"
-      sha256 "be75776c063c041b7c1a85a2952dcea58e625dba14c25e4c6ee539cb113c3361"
+      url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.7/papercrypt_Darwin_arm64.tar.gz"
+      sha256 "42a2d05d3d101f43525c59b41c0bf1a8809193703381563fee36c4974f332d2f"
 
       def install
         bin.install "papercrypt"
@@ -38,8 +38,8 @@ class Papercrypt < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.6/papercrypt_Linux_x86_64.tar.gz"
-        sha256 "ffd38219a95116dee4e9ac0ef57ea00138aef7cb9168e93f147b62256078ba50"
+        url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.7/papercrypt_Linux_x86_64.tar.gz"
+        sha256 "b319d4bbe793d06eaf1748a99442c15cb9e03df987a328e287e00b2e171375d5"
 
         def install
           bin.install "papercrypt"
@@ -52,8 +52,8 @@ class Papercrypt < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.6/papercrypt_Linux_arm64.tar.gz"
-        sha256 "9e0f500ac3d16f13306be8d986335c248479077a33b4e6a6b21a4ac265e6600c"
+        url "https://github.com/tmuniversal/papercrypt/releases/download/v1.2.7/papercrypt_Linux_arm64.tar.gz"
+        sha256 "8bce8b64779fc01362f276af38f4eb0da4e3209627d84fa6996924c416ca55c6"
 
         def install
           bin.install "papercrypt"
