@@ -5,7 +5,8 @@
 class Papercrypt < Formula
   desc "A tool to generate paper backups of your passwords and other secrets."
   homepage "https://github.com/TMUniversal/papercrypt"
-  version "2.0.1"
+  version "2.0.2"
+  disable! date: "2025-08-11", because: "the cask should be used now instead", replacement_cask: "papercrypt"
   license "AGPL-3.0-or-later"
 
   on_macos do
